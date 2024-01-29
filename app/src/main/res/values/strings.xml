@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">مترو تهران</string>
+    <string name="Elevator">آسانسور</string>
+    <string name="Parking">پارکینگ</string>
+    <string name="Lost">اشیاء گمشده</string>
+    <string name="Water">آبخوری</string>
+    <string name="Phone">تلفن عمومی</string>
+    <string name="Bus">اتوبوس</string>
+    <string name="Taxi">تاکسی</string>
+    <string name="ATM">دستگاه خودپرداز</string>
+    <string name="Escalator">پله برقی</string>
+    <string name="Ticket">بلیط فروشی</string>
+    <string name="Possibilities">امکانات</string>
+    <string name="nearby">مراکز مهم اطراف ایستگاه</string>
+    <string name="time">زمانبندی حرکت قطار</string>
+    <string name="location">موقعیت ایستگاه</string>
+    <string name="metro_map">نقشه مترو</string>
+    <string name="open">باز</string>
+    <string name="close">بسته</string>
+    <string name="stationlist">لیست خطوط</string>
+    <string name="PUBLICTRANSPORTATIONPERSIAN">خطوط اتوبوس و تاکسی</string>
+    <string name="public_transportation">TRANSPORTATION</string>
+    <string name="nearby_places">NEARBY PLACES</string>
+    <string name="nearbyplacespersian">مراکز مهم اطراف ایستگاه</string>
+    <string name="SCHEDULEpersian">زمان بندی حرکت قطار</string>
+    <string name="schedule">SCHEDULE</string>
+    <string name="Facilities_persian">امکانات</string>
+    <string name="facilities">FACILITIES</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="mapKey">AIzaSyCnOL7eDmg-QpOPUWGr2I4XCZLwCeHAirg</string>
+    <string name="no_Internet_fa">بدون اتصال اینترنت</string>
+    <string name="no_internet_connection">NO INTERNET CONNECTION</string>
+    <string name="try_again">تلاش مجدد\nTRY AGAIN</string>
+    <string name="tehran_metro_map">نقشه مترو تهران</string>
+    <string name="select_path_fa">انتخاب مسیر</string>
+    <string name="select_path">SELECT PATH</string>
+    <string name="taj_to_kahrizak_fa">خط 1 - تجریش/کهریزک</string>
+    <string name="taj_to_kahrizak_en">LINE 1 - TAJRISH/KAHRIZAK</string>
+    <string name="taj_to_aftab_fa">خط 1 - تجریش/شهر آفتاب</string>
+    <string name="taj_to_aftab_en">LINE 1 - TAJRISH/SHAHRE AFTAB</string>
+    <string name="kolah_to_eram_fa">خط 4 - کلاهدوز/ارم سبز</string>
+    <string name="kolah_to_eram_en">LINE 4 - KOLAHDOZ/ERAME SABZ</string>
+    <string name="kolah_to_airport_fa">خط 4 - کلاهدوز/فرودگاه مهرآباد</string>
+    <string name="kolah_to_airport_en">LINE 4 - KOLAHDOZ/MEHRABAD AIRPORT</string>
+    <string name="top_page_menu">منوی بالای صفحه</string>
+    <string name="arrived_train">زمان رسیدن قطار:</string>
+    <string name="minutes">دقیقه</string>
+    <string name="karaj_address">ضلع جنوب غربی پل بزرگراه کرج - فردیس و آزادراه کرج - قزوین\nدر میدان شهید سلطانی</string>
+
+</resources>

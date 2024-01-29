@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="Line1">#dc4e4a</color>
+    <color name="Line2">#366eab</color>
+    <color name="Line3">#60b1ce</color>
+    <color name="Line4">#f4b653</color>
+    <color name="Line5">#3c9174</color>
+    <color name="Line6">#f472a5</color>
+    <color name="Line7">#9a4ca2</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="Nero">#202020</color>
+    <color name="Baltic_Sea">#3c3f41</color>
+    <color name="lines">#3BFFFFFF</color>
+    <color name="Merino">#e2ddd1</color>
+    <color name="BlueWhale">#1d2d49</color>
+
+</resources>

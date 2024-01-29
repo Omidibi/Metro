@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MetroTehran" parent="Theme.Material3.DayNight.NoActionBar">
+        Customize your light theme here.
+        <item name="colorPrimary">@color/Nero</item>
+    </style>
+
+    <style name="Theme.MetroTehran" parent="Base.Theme.MetroTehran" />
+
+    <style name="tab_text" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:fontFamily">"font/IRANSansMobile(FaNum).ttf"</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!--                         استایل دیالوگ                                -->
+    <style name="Rounded.MaterialComponents.MaterialAlertDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MyApp.Dialog.Rounded</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.MyApp.Dialog.Rounded" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+
+</resources>
