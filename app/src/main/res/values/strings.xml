@@ -29,7 +29,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">MapsActivity</string>
-    <string name="mapKey">AIzaSyCnOL7eDmg-QpOPUWGr2I4XCZLwCeHAirg</string>
+    <string name="mapKey">AIzaSyByUb-HuedylN0LPFKOJd7WrLzX7iPefvE</string>
     <string name="no_Internet_fa">بدون اتصال اینترنت</string>
     <string name="no_internet_connection">NO INTERNET CONNECTION</string>
     <string name="try_again">تلاش مجدد\nTRY AGAIN</string>

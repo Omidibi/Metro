@@ -29,7 +29,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     }
 
-    private fun setupBindingAndInitialize(myThis: OnMapReadyCallback){
+    private fun setupBindingAndInitialize(myThis: OnMapReadyCallback) {
         requestedOrientation = (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         binding = ActivityMapsBinding.inflate(layoutInflater)
         binding.apply {
@@ -41,7 +41,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 intent.getParcelableExtra("myStationInfo")!!
             }
             Log.e("", "")
-            val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+            val mapFragment =
+                supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
             mapFragment.getMapAsync(myThis)
         }
     }
