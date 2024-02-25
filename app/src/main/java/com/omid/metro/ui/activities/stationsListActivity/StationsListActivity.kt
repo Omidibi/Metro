@@ -3,56 +3,49 @@ package com.omid.metro.ui.activities.stationsListActivity
 import android.content.pm.ActivityInfo
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.omid.metro.api.WebServiceCaller
-import com.omid.metro.config.AppSettings
 import com.omid.metro.databinding.ActivityStationsListBinding
 import com.omid.metro.db.StationsTbl
-import com.omid.metro.model.listener.IListener
 import com.omid.metro.model.models.LinesItem
 import com.omid.metro.model.models.Stations
 import retrofit2.Call
 
-class StationsListActivity : AppCompatActivity() {
-    lateinit var binding: ActivityStationsListBinding
-    private lateinit var bundle: Bundle
-    lateinit var myLines: LinesItem
-    private lateinit var appSettings: AppSettings
-    private lateinit var tblStations: StationsTbl
-    private val webServiceCaller = WebServiceCaller()
+class StationsListActivity : AppCompatActivity(), IViewStationList<Stations> {
+    private lateinit var binding: ActivityStationsListBinding
+    private lateinit var myLines: LinesItem
+    private val tblStations = StationsTbl()
+    private val stationsListPresenter = StationsListPresenter(this)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setupBindingAndInitialize()
+        setupBinding()
+        getStations()
         saveDataCheck()
         clickEvent()
 
     }
 
-    private fun setupBindingAndInitialize() {
+    private fun setupBinding() {
         requestedOrientation = (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         binding = ActivityStationsListBinding.inflate(layoutInflater)
         binding.apply {
             setContentView(root)
-            tblStations = StationsTbl()
-            appSettings = AppSettings()
             pb.visibility = View.VISIBLE
             recyclerViewStationsList.visibility = View.GONE
-            bundle = intent.extras!!
+        }
+    }
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                myLines = intent.getParcelableExtra("myLines", LinesItem::class.java)!!
-                Log.e("", "")
+    private fun getStations() {
+        binding.apply {
+            myLines = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                intent.getParcelableExtra("myLines", LinesItem::class.java)!!
             } else {
-                myLines = intent.getParcelableExtra("myLines")!!
-                Log.e("", "")
+                intent.getParcelableExtra("myLines")!!
             }
             showTitle.text = myLines.title
-
         }
-
     }
 
     private fun saveDataCheck() {
@@ -61,12 +54,12 @@ class StationsListActivity : AppCompatActivity() {
                 pb.visibility = View.GONE
                 clNoConnection.visibility = View.GONE
                 recyclerViewStationsList.visibility = View.VISIBLE
-                recyclerViewStationsList.adapter = StationAdapter(tblStations.search(myLines.id), myLines)
-                recyclerViewStationsList.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
-                Log.e("", "")
+                recyclerViewStationsList.adapter =
+                    StationAdapter(tblStations.search(myLines.id), myLines)
+                recyclerViewStationsList.layoutManager =
+                    LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
             } else {
-                onLine()
-                Log.e("", "")
+              stationsListPresenter.getStations(myLines.id)
             }
         }
     }
@@ -79,55 +72,51 @@ class StationsListActivity : AppCompatActivity() {
         }
     }
 
-    private fun onLine() {
-        binding.apply {
-            pb.visibility = View.VISIBLE
-            clNoConnection.visibility = View.GONE
-            recyclerViewStationsList.visibility = View.GONE
-            webServiceCaller.getStations(myLines.id,object :IListener<Stations>{
-                override fun onSuccess(call: Call<Stations>, response: Stations) {
-                    pb.visibility = View.GONE
-                    clNoConnection.visibility = View.GONE
-                    recyclerViewStationsList.visibility = View.VISIBLE
-                    recyclerViewStationsList.adapter = StationAdapter(response, myLines)
-                    recyclerViewStationsList.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
-                    for (i in response) {
-                        tblStations.insertStations(i)
-                    }
-                }
-
-                override fun onFailure(call: Call<Stations>, t: Throwable, errorResponse: String) {
-                    pb.visibility = View.GONE
-                    clNoConnection.visibility = View.VISIBLE
-                    recyclerViewStationsList.visibility = View.GONE
-                    btnTry.setOnClickListener { checkAgain() }
-                }
-            })
-        }
+    override fun showProgress() {
+        binding.pb.visibility = View.VISIBLE
     }
 
-    private fun checkAgain() {
-        binding.apply {
-            pb.visibility = View.VISIBLE
-            clNoConnection.visibility = View.GONE
-            webServiceCaller.getStations(myLines.id,object : IListener<Stations>{
-                override fun onSuccess(call: Call<Stations>, response: Stations) {
-                    pb.visibility = View.GONE
-                    clNoConnection.visibility = View.GONE
-                    recyclerViewStationsList.visibility = View.VISIBLE
-                    recyclerViewStationsList.adapter = StationAdapter(response, myLines)
-                    recyclerViewStationsList.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
-                    for (i in response) {
-                        tblStations.insertStations(i)
-                    }
-                }
+    override fun hideProgress() {
+        binding.pb.visibility = View.GONE
+    }
 
-                override fun onFailure(call: Call<Stations>, t: Throwable, errorResponse: String) {
-                    pb.visibility = View.GONE
-                    clNoConnection.visibility = View.VISIBLE
-                    recyclerViewStationsList.visibility = View.GONE
-                }
-            })
+    override fun showNoConnection() {
+        binding.clNoConnection.visibility = View.VISIBLE
+    }
+
+    override fun hideNoConnection() {
+        binding.clNoConnection.visibility = View.GONE
+    }
+
+    override fun showRv() {
+        binding.recyclerViewStationsList.visibility = View.VISIBLE
+    }
+
+    override fun hideRV() {
+        binding.recyclerViewStationsList.visibility = View.GONE
+    }
+
+    override fun errorStatus(call: Call<Stations>, t: Throwable, errorResponse: String) {
+       binding.apply {
+           clNoConnection.visibility = View.VISIBLE
+           recyclerViewStationsList.visibility = View.GONE
+           pb.visibility = View.GONE
+           btnTry.setOnClickListener {
+               clNoConnection.visibility = View.GONE
+               recyclerViewStationsList.visibility = View.GONE
+               pb.visibility = View.VISIBLE
+               stationsListPresenter.getStations(myLines.id)
+           }
+       }
+    }
+
+    override fun okStatus(call: Call<Stations>, response: Stations) {
+        binding.apply {
+            recyclerViewStationsList.adapter = StationAdapter(response, myLines)
+            recyclerViewStationsList.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
+            for (i in response) {
+                tblStations.insertStations(i)
+            }
         }
     }
 }

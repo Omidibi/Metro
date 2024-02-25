@@ -1,5 +1,6 @@
 package com.omid.metro.api
 
+import com.omid.metro.api.InitRetrofit.iService
 import com.omid.metro.model.listener.IListener
 import com.omid.metro.model.models.Lines
 import com.omid.metro.model.models.Stations
@@ -8,7 +9,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class WebServiceCaller {
-    private val iService = ApiRetrofit.retrofit.create(IService::class.java)
 
     fun getLines(iListener: IListener<Lines>) {
         iService.getLines().enqueue(object : Callback<Lines> {

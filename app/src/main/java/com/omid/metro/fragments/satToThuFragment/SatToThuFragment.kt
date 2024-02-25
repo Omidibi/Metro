@@ -1,8 +1,7 @@
-package com.omid.metro.fragments
+package com.omid.metro.fragments.satToThuFragment
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,21 +9,14 @@ import androidx.fragment.app.Fragment
 import com.omid.metro.databinding.FragmentSatToThuBinding
 import com.omid.metro.model.models.StationsItem
 
-class SatToThuFragment : Fragment() {
+class SatToThuFragment : Fragment(),IViewSatToThu.View {
     lateinit var binding: FragmentSatToThuBinding
     private lateinit var bundle: Bundle
     private lateinit var stationsItem: StationsItem
+    private val satToThuPresenter = SatToThuPresenter(this)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        setupBinding()
-
+        satToThuPresenter.start()
         return binding.root
-    }
-
-    private fun setupBinding() {
-        binding = FragmentSatToThuBinding.inflate(layoutInflater)
-        binding.apply {
-
-        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -36,8 +28,14 @@ class SatToThuFragment : Fragment() {
             } else {
                 bundle.getParcelable("schedule")!!
             }
-            Log.e("", "")
             binding.showtime.text = stationsItem.stationDuration
+        }
+    }
+
+    override fun setupBinding() {
+        binding = FragmentSatToThuBinding.inflate(layoutInflater)
+        binding.apply {
+
         }
     }
 }

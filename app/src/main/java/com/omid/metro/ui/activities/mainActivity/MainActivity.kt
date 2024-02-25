@@ -2,28 +2,26 @@ package com.omid.metro.ui.activities.mainActivity
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.omid.metro.R
-import com.omid.metro.api.WebServiceCaller
 import com.omid.metro.config.AppSettings
 import com.omid.metro.databinding.ActivityMainBinding
 import com.omid.metro.db.LinesTbl
-import com.omid.metro.model.listener.IListener
 import com.omid.metro.model.models.Lines
 import retrofit2.Call
 
-class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
-    lateinit var appSettings: AppSettings
-    private val webServiceCaller = WebServiceCaller()
+class MainActivity : AppCompatActivity(), IViewMActivity<Lines> {
+
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var appSettings: AppSettings
+    private val mainPresenter = MainPresenter(this)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupBinding()
         saveDataCheck()
-
     }
 
     private fun setupBinding() {
@@ -42,44 +40,9 @@ class MainActivity : AppCompatActivity() {
         binding.apply {
             if (appSettings.getLines() == 1) {
                 offLine()
-                Log.e("", "")
             } else {
-                onLine()
-                Log.e("", "")
+                mainPresenter.getLines()
             }
-        }
-    }
-
-    private fun onLine() {
-        binding.apply {
-            PB.visibility = View.VISIBLE
-            clNoConnection.visibility = View.GONE
-            webServiceCaller.getLines(object : IListener<Lines> {
-                override fun onSuccess(call: Call<Lines>, response: Lines) {
-                    Log.e("", "")
-                    recyclerViewMain.visibility = View.VISIBLE
-                    PB.visibility = View.GONE
-                    clNoConnection.visibility = View.GONE
-                    recyclerViewMain.adapter = LineAdapter(response, this@MainActivity)
-                    recyclerViewMain.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
-                    for (i in response) {
-                        val put = LinesTbl()
-                        put.insertLines(i)
-                        Log.e("", "")
-                    }
-                    appSettings.saveLines(1)
-                }
-
-                override fun onFailure(call: Call<Lines>, t: Throwable, errorResponse: String) {
-                    Log.e("", "")
-                    recyclerViewMain.visibility = View.GONE
-                    PB.visibility = View.GONE
-                    clNoConnection.visibility = View.VISIBLE
-                    btnTry.setOnClickListener {
-                        checkAgain()
-                    }
-                }
-            })
         }
     }
 
@@ -94,31 +57,53 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun checkAgain() {
-        binding.apply {
-            PB.visibility = View.VISIBLE
-            clNoConnection.visibility = View.GONE
-            webServiceCaller.getLines(object : IListener<Lines> {
-                override fun onSuccess(call: Call<Lines>, response: Lines) {
-                    recyclerViewMain.visibility = View.VISIBLE
-                    PB.visibility = View.GONE
-                    clNoConnection.visibility = View.GONE
-                    recyclerViewMain.adapter = LineAdapter(response, this@MainActivity)
-                    recyclerViewMain.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
-                    for (i in response) {
-                        val put = LinesTbl()
-                        put.insertLines(i)
-                        Log.e("", "")
-                    }
-                    appSettings.saveLines(1)
-                }
+    override fun showRv() {
+        binding.recyclerViewMain.visibility = View.VISIBLE
+    }
 
-                override fun onFailure(call: Call<Lines>, t: Throwable, errorResponse: String) {
-                    recyclerViewMain.visibility = View.GONE
-                    PB.visibility = View.VISIBLE
-                    clNoConnection.visibility = View.VISIBLE
-                }
-            })
+    override fun hideRv() {
+        binding.recyclerViewMain.visibility = View.GONE
+    }
+
+    override fun showProgress() {
+        binding.PB.visibility = View.VISIBLE
+    }
+
+    override fun hideProgress() {
+        binding.PB.visibility = View.GONE
+    }
+
+    override fun showNoConnection() {
+        binding.clNoConnection.visibility = View.VISIBLE
+    }
+
+    override fun hideNoConnection() {
+        binding.clNoConnection.visibility = View.GONE
+    }
+
+    override fun errorStatus(call: Call<Lines>, t: Throwable, errorResponse: String) {
+        binding.apply {
+            recyclerViewMain.visibility = View.GONE
+            PB.visibility = View.GONE
+            clNoConnection.visibility = View.VISIBLE
+            btnTry.setOnClickListener {
+                PB.visibility = View.VISIBLE
+                clNoConnection.visibility = View.GONE
+                recyclerViewMain.visibility = View.GONE
+                mainPresenter.getLines()
+            }
+        }
+    }
+
+    override fun okStatus(call: Call<Lines>, response: Lines) {
+        binding.apply {
+            recyclerViewMain.adapter = LineAdapter(response, this@MainActivity)
+            recyclerViewMain.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
+            for (i in response) {
+                val put = LinesTbl()
+                put.insertLines(i)
+            }
+            appSettings.saveLines(1)
         }
     }
 }
