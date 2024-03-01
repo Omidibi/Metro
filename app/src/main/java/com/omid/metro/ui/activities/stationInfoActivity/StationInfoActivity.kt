@@ -10,8 +10,8 @@ import com.omid.metro.databinding.ActivityStationInfoBinding
 import com.omid.metro.model.models.StationsItem
 import com.omid.metro.ui.activities.mapsActivity.MapsActivity
 import com.omid.metro.ui.activities.scheduleActivity.ScheduleActivity
-import com.omid.metro.util.Check
-import com.omid.metro.util.Colors
+import com.omid.metro.utils.check.Check
+import com.omid.metro.utils.colors.Colors
 
 class StationInfoActivity : AppCompatActivity(), IViewStationInfo.View {
     lateinit var binding: ActivityStationInfoBinding
@@ -48,13 +48,11 @@ class StationInfoActivity : AppCompatActivity(), IViewStationInfo.View {
 
     override fun checkForView() {
         binding.apply {
-            showTitle.text = myStationsInfo.title
-            txtTitlePersian.text = myStationsInfo.title
-            txtTitleEnglish.text = myStationsInfo.titleEnglish
-            txtAddress.text = myStationsInfo.address
-
+            stationInfoPresenter.setShowTitle()
+            stationInfoPresenter.setTitlePersian()
+            stationInfoPresenter.setTitleEnglish()
+            stationInfoPresenter.setAddress()
             Check.facilitiesCheck(myStationsInfo, binding)
-
             Colors.titleBackground(myStationsInfo, binding)
         }
     }
@@ -63,18 +61,36 @@ class StationInfoActivity : AppCompatActivity(), IViewStationInfo.View {
         binding.apply {
 
             CLSchedule.setOnClickListener {
-                val intent = Intent(applicationContext, ScheduleActivity::class.java)
-                intent.putExtra("myStationInfo", myStationsInfo)
-                startActivity(intent)
+                Intent(applicationContext, ScheduleActivity::class.java).apply {
+                    this.putExtra("myStationInfo", myStationsInfo)
+                    startActivity(this)
+                }
             }
 
             llAddress.setOnClickListener {
-                val intent = Intent(applicationContext, MapsActivity::class.java)
-                intent.putExtra("myStationInfo", myStationsInfo)
-                startActivity(intent)
+                Intent(applicationContext, MapsActivity::class.java).apply {
+                    this.putExtra("myStationInfo", myStationsInfo)
+                    startActivity(this)
+                }
             }
 
             forward.setOnClickListener { finish() }
         }
+    }
+
+    override fun setShowTitle() {
+        binding.showTitle.text = myStationsInfo.title
+    }
+
+    override fun setTitlePersian() {
+        binding.txtTitlePersian.text = myStationsInfo.title
+    }
+
+    override fun setTitleEnglish() {
+        binding.txtTitleEnglish.text = myStationsInfo.titleEnglish
+    }
+
+    override fun setAddress() {
+        binding.txtAddress.text = myStationsInfo.address
     }
 }

@@ -15,7 +15,7 @@ class SatToThuFragment : Fragment(),IViewSatToThu.View {
     private lateinit var stationsItem: StationsItem
     private val satToThuPresenter = SatToThuPresenter(this)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        satToThuPresenter.start()
+        satToThuPresenter.startPresenter()
         return binding.root
     }
 
@@ -28,14 +28,15 @@ class SatToThuFragment : Fragment(),IViewSatToThu.View {
             } else {
                 bundle.getParcelable("schedule")!!
             }
-            binding.showtime.text = stationsItem.stationDuration
+            satToThuPresenter.setShowTime()
         }
     }
 
     override fun setupBinding() {
         binding = FragmentSatToThuBinding.inflate(layoutInflater)
-        binding.apply {
+    }
 
-        }
+    override fun setShowTime() {
+        binding.showtime.text = stationsItem.stationDuration
     }
 }

@@ -8,7 +8,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.omid.metro.databinding.ActivityScheduleBinding
 import com.omid.metro.model.models.StationsItem
-import com.omid.metro.util.Colors
+import com.omid.metro.utils.colors.Colors
 
 class ScheduleActivity : AppCompatActivity(), IViewSchedule.View {
     lateinit var binding: ActivityScheduleBinding
@@ -37,7 +37,7 @@ class ScheduleActivity : AppCompatActivity(), IViewSchedule.View {
             } else {
                 intent.getParcelableExtra("myStationInfo")!!
             }
-            showTitle.text = schedule.title
+            schPresenter.setShowTitle()
 
             val list = mutableListOf<StationsItem>()
             list.add(schedule)
@@ -55,8 +55,7 @@ class ScheduleActivity : AppCompatActivity(), IViewSchedule.View {
             tabsTL.addTab(tabsTL.newTab().setText("جمعه و روزهای تعطیل"))
             tabsTL.addTab(tabsTL.newTab().setText("شنبه تا پنجشنبه"))
             tabsTL.tabGravity = TabLayout.GRAVITY_FILL
-            val tabAdapter = TabsAdapter(tabsTL.tabCount, this@ScheduleActivity)
-            vpSchedule.adapter = tabAdapter
+            vpSchedule.adapter = TabsAdapter(tabsTL.tabCount, this@ScheduleActivity)
             tabsTL.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
                 override fun onTabSelected(tab: TabLayout.Tab?) {
                     vpSchedule.currentItem = tab!!.position
@@ -79,7 +78,6 @@ class ScheduleActivity : AppCompatActivity(), IViewSchedule.View {
                         0 -> tabsTL.getTabAt(position)?.select()
                         1 -> tabsTL.getTabAt(position)?.select()
                     }
-
                 }
             })
         }
@@ -89,5 +87,9 @@ class ScheduleActivity : AppCompatActivity(), IViewSchedule.View {
         binding.apply {
             forward.setOnClickListener { finish() }
         }
+    }
+
+    override fun setShowTitle() {
+        binding.showTitle.text = schedule.title
     }
 }

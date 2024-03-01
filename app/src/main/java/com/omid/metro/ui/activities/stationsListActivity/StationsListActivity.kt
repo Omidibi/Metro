@@ -7,7 +7,6 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.omid.metro.databinding.ActivityStationsListBinding
-import com.omid.metro.db.StationsTbl
 import com.omid.metro.model.models.LinesItem
 import com.omid.metro.model.models.Stations
 import retrofit2.Call
@@ -15,7 +14,6 @@ import retrofit2.Call
 class StationsListActivity : AppCompatActivity(), IViewStationList<Stations> {
     private lateinit var binding: ActivityStationsListBinding
     private lateinit var myLines: LinesItem
-    private val tblStations = StationsTbl()
     private val stationsListPresenter = StationsListPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +22,6 @@ class StationsListActivity : AppCompatActivity(), IViewStationList<Stations> {
         getStations()
         saveDataCheck()
         clickEvent()
-
     }
 
     private fun setupBinding() {
@@ -32,32 +29,26 @@ class StationsListActivity : AppCompatActivity(), IViewStationList<Stations> {
         binding = ActivityStationsListBinding.inflate(layoutInflater)
         binding.apply {
             setContentView(root)
-            pb.visibility = View.VISIBLE
-            recyclerViewStationsList.visibility = View.GONE
         }
     }
 
     private fun getStations() {
-        binding.apply {
-            myLines = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                intent.getParcelableExtra("myLines", LinesItem::class.java)!!
-            } else {
-                intent.getParcelableExtra("myLines")!!
-            }
-            showTitle.text = myLines.title
+        myLines = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getParcelableExtra("myLines", LinesItem::class.java)!!
+        } else {
+            intent.getParcelableExtra("myLines")!!
         }
+        stationsListPresenter.setShowTitle()
     }
 
     private fun saveDataCheck() {
         binding.apply {
-            if (tblStations.search(myLines.id).isNotEmpty()) {
-                pb.visibility = View.GONE
-                clNoConnection.visibility = View.GONE
-                recyclerViewStationsList.visibility = View.VISIBLE
-                recyclerViewStationsList.adapter =
-                    StationAdapter(tblStations.search(myLines.id), myLines)
-                recyclerViewStationsList.layoutManager =
-                    LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
+            if (stationsListPresenter.search(myLines.id).isNotEmpty()) {
+                stationsListPresenter.hideProgress()
+                stationsListPresenter.hideNoConnection()
+                stationsListPresenter.showRv()
+                recyclerViewStationsList.adapter = StationAdapter(stationsListPresenter.search(myLines.id), myLines)
+                recyclerViewStationsList.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
             } else {
               stationsListPresenter.getStations(myLines.id)
             }
@@ -66,9 +57,7 @@ class StationsListActivity : AppCompatActivity(), IViewStationList<Stations> {
 
     private fun clickEvent() {
         binding.apply {
-            forward.setOnClickListener {
-                finish()
-            }
+            forward.setOnClickListener { finish() }
         }
     }
 
@@ -96,26 +85,38 @@ class StationsListActivity : AppCompatActivity(), IViewStationList<Stations> {
         binding.recyclerViewStationsList.visibility = View.GONE
     }
 
+    override fun setShowTitle() {
+        binding.showTitle.text = myLines.title
+    }
+
     override fun errorStatus(call: Call<Stations>, t: Throwable, errorResponse: String) {
-       binding.apply {
-           clNoConnection.visibility = View.VISIBLE
-           recyclerViewStationsList.visibility = View.GONE
-           pb.visibility = View.GONE
-           btnTry.setOnClickListener {
-               clNoConnection.visibility = View.GONE
-               recyclerViewStationsList.visibility = View.GONE
-               pb.visibility = View.VISIBLE
-               stationsListPresenter.getStations(myLines.id)
-           }
-       }
+      errorStatus()
     }
 
     override fun okStatus(call: Call<Stations>, response: Stations) {
+       okStatus(response)
+    }
+
+    private fun errorStatus(){
+        binding.apply {
+            stationsListPresenter.showNoConnection()
+            stationsListPresenter.hideRV()
+            stationsListPresenter.hideProgress()
+            btnTry.setOnClickListener {
+                stationsListPresenter.hideNoConnection()
+                stationsListPresenter.hideRV()
+                stationsListPresenter.showProgress()
+                stationsListPresenter.getStations(myLines.id)
+            }
+        }
+    }
+
+    private fun okStatus(response: Stations){
         binding.apply {
             recyclerViewStationsList.adapter = StationAdapter(response, myLines)
             recyclerViewStationsList.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
             for (i in response) {
-                tblStations.insertStations(i)
+                stationsListPresenter.insertStations(i)
             }
         }
     }

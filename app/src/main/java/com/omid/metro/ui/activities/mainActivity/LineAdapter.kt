@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.omid.metro.R
 import com.omid.metro.model.models.LinesItem
 import com.omid.metro.ui.activities.stationsListActivity.StationsListActivity
-import com.omid.metro.util.Colors
-import com.omid.metro.util.configuration.AppConfiguration
+import com.omid.metro.utils.colors.Colors
+import com.omid.metro.utils.configuration.AppConfiguration
 
 class LineAdapter(private val linesList: List<LinesItem>, private val activity: Activity) : RecyclerView.Adapter<LinesVH>() {
 

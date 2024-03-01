@@ -5,7 +5,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.omid.metro.model.models.StationsItem
-import com.omid.metro.util.configuration.AppConfiguration
+import com.omid.metro.utils.configuration.AppConfiguration
 
 class StationsTbl : SQLiteOpenHelper(AppConfiguration.getContext(), "StationsTbl", null, 1) {
     override fun onCreate(db: SQLiteDatabase?) {

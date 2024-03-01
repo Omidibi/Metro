@@ -16,6 +16,8 @@ interface IViewStationList<T> {
 
     fun hideRV()
 
+    fun setShowTitle()
+
     fun okStatus(call: Call<T>, response: T)
 
     fun errorStatus(call: Call<T>, t: Throwable, errorResponse: String)

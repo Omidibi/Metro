@@ -4,6 +4,8 @@ import retrofit2.Call
 
 interface IViewMActivity<T> {
 
+    fun setShowTitle()
+
     fun showRv()
 
     fun hideRv()

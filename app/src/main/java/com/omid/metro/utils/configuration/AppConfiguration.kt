@@ -1,4 +1,4 @@
-package com.omid.metro.util.configuration
+package com.omid.metro.utils.configuration
 
 import android.annotation.SuppressLint
 import android.app.Application

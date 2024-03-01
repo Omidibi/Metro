@@ -1,4 +1,4 @@
-package com.omid.metro.util
+package com.omid.metro.utils.check
 
 import android.view.View
 import androidx.core.content.ContextCompat
@@ -6,7 +6,7 @@ import com.omid.metro.R
 import com.omid.metro.databinding.ActivityStationInfoBinding
 import com.omid.metro.model.models.StationsItem
 import com.omid.metro.ui.activities.stationsListActivity.StationVH
-import com.omid.metro.util.configuration.AppConfiguration
+import com.omid.metro.utils.configuration.AppConfiguration
 
 class Check {
     companion object {

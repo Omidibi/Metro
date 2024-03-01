@@ -5,7 +5,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.omid.metro.model.models.LinesItem
-import com.omid.metro.util.configuration.AppConfiguration
+import com.omid.metro.utils.configuration.AppConfiguration
 
 class LinesTbl : SQLiteOpenHelper(AppConfiguration.getContext(), "LinesTbl", null, 1) {
     override fun onCreate(db: SQLiteDatabase?) {

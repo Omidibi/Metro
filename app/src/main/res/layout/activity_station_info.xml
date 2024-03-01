@@ -36,7 +36,7 @@
 
                 />
 
-            <com.omid.metro.util.customViews.IranSansTextView
+            <com.omid.metro.ui.customViews.IranSansTextView
                 android:id="@+id/showTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar_station_info">
 
-        <com.omid.metro.util.customViews.IranSansTextView
+        <com.omid.metro.ui.customViews.IranSansTextView
             android:id="@+id/txt_title_persian"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
             android:textSize="@dimen/_18sp"
             android:textStyle="bold" />
 
-        <com.omid.metro.util.customViews.IranSansTextView
+        <com.omid.metro.ui.customViews.IranSansTextView
             android:id="@+id/txt_title_english"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ll_title">
 
-        <com.omid.metro.util.customViews.IranSansTextView
+        <com.omid.metro.ui.customViews.IranSansTextView
             android:id="@+id/txt_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -151,7 +151,7 @@
                         app:srcCompat="@drawable/bus"
                         app:tint="@color/white" />
 
-                    <com.omid.metro.util.customViews.IranSansTextView
+                    <com.omid.metro.ui.customViews.IranSansTextView
                         android:id="@+id/txt_transportation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -160,7 +160,7 @@
                         android:textColor="@color/white"
                         android:textSize="@dimen/_11sp" />
 
-                    <com.omid.metro.util.customViews.IranSansTextView
+                    <com.omid.metro.ui.customViews.IranSansTextView
                         android:id="@+id/txt_transportation_english"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -186,7 +186,7 @@
                         app:srcCompat="@drawable/homework"
                         app:tint="@color/white" />
 
-                    <com.omid.metro.util.customViews.IranSansTextView
+                    <com.omid.metro.ui.customViews.IranSansTextView
                         android:id="@+id/txt_nearby_Persian"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -195,7 +195,7 @@
                         android:textColor="@color/white"
                         android:textSize="@dimen/_11sp" />
 
-                    <com.omid.metro.util.customViews.IranSansTextView
+                    <com.omid.metro.ui.customViews.IranSansTextView
                         android:id="@+id/txt_nearby_english"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -221,7 +221,7 @@
                         app:srcCompat="@drawable/train"
                         app:tint="@color/white" />
 
-                    <com.omid.metro.util.customViews.IranSansTextView
+                    <com.omid.metro.ui.customViews.IranSansTextView
                         android:id="@+id/txt_time_train_persian"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -230,7 +230,7 @@
                         android:textColor="@color/white"
                         android:textSize="@dimen/_11sp" />
 
-                    <com.omid.metro.util.customViews.IranSansTextView
+                    <com.omid.metro.ui.customViews.IranSansTextView
                         android:id="@+id/txt_time_train_english"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -254,7 +254,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/ll"
                     app:layout_constraintVertical_bias="0.0">
 
-                    <com.omid.metro.util.customViews.IranSansTextView
+                    <com.omid.metro.ui.customViews.IranSansTextView
                         android:id="@+id/txt_facilities_persian"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -270,7 +270,7 @@
 
                         />
 
-                    <com.omid.metro.util.customViews.IranSansTextView
+                    <com.omid.metro.ui.customViews.IranSansTextView
                         android:id="@+id/txt_facilities_english"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -319,7 +319,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:tint="@color/white" />
 
-                    <com.omid.metro.util.customViews.IranSansTextView
+                    <com.omid.metro.ui.customViews.IranSansTextView
                         android:id="@+id/tv_ticket"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -356,7 +356,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:tint="@color/white" />
 
-                    <com.omid.metro.util.customViews.IranSansTextView
+                    <com.omid.metro.ui.customViews.IranSansTextView
                         android:id="@+id/tv_escalator"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -401,7 +401,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:tint="@color/white" />
 
-                    <com.omid.metro.util.customViews.IranSansTextView
+                    <com.omid.metro.ui.customViews.IranSansTextView
                         android:id="@+id/tv_atm"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -439,7 +439,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:tint="@color/white" />
 
-                    <com.omid.metro.util.customViews.IranSansTextView
+                    <com.omid.metro.ui.customViews.IranSansTextView
                         android:id="@+id/tv_taxi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -484,7 +484,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:tint="@color/white" />
 
-                    <com.omid.metro.util.customViews.IranSansTextView
+                    <com.omid.metro.ui.customViews.IranSansTextView
                         android:id="@+id/tv_bus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -520,7 +520,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:tint="@color/white" />
 
-                    <com.omid.metro.util.customViews.IranSansTextView
+                    <com.omid.metro.ui.customViews.IranSansTextView
                         android:id="@+id/tv_phone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -564,7 +564,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:tint="@color/white" />
 
-                    <com.omid.metro.util.customViews.IranSansTextView
+                    <com.omid.metro.ui.customViews.IranSansTextView
                         android:id="@+id/tv_water"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -601,7 +601,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:tint="@color/white" />
 
-                    <com.omid.metro.util.customViews.IranSansTextView
+                    <com.omid.metro.ui.customViews.IranSansTextView
                         android:id="@+id/tv_lost"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -645,7 +645,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:tint="@color/white" />
 
-                    <com.omid.metro.util.customViews.IranSansTextView
+                    <com.omid.metro.ui.customViews.IranSansTextView
                         android:id="@+id/tv_parking"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -682,7 +682,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:tint="@color/white" />
 
-                    <com.omid.metro.util.customViews.IranSansTextView
+                    <com.omid.metro.ui.customViews.IranSansTextView
                         android:id="@+id/tv_elevator"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

@@ -25,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/white" />
 
-        <com.omid.metro.util.customViews.IranSansTextView
+        <com.omid.metro.ui.customViews.IranSansTextView
             android:id="@+id/name_persian"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.3" />
 
-        <com.omid.metro.util.customViews.IranSansTextView
+        <com.omid.metro.ui.customViews.IranSansTextView
             android:id="@+id/name_english"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

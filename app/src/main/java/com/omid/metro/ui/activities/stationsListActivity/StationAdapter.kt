@@ -9,8 +9,8 @@ import com.omid.metro.R
 import com.omid.metro.model.models.LinesItem
 import com.omid.metro.model.models.StationsItem
 import com.omid.metro.ui.activities.stationInfoActivity.StationInfoActivity
-import com.omid.metro.util.Check
-import com.omid.metro.util.configuration.AppConfiguration
+import com.omid.metro.utils.check.Check
+import com.omid.metro.utils.configuration.AppConfiguration
 
 class StationAdapter(private val stationList: List<StationsItem>, private val myLine : LinesItem): RecyclerView.Adapter<StationVH>() {
 

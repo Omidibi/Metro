@@ -7,6 +7,15 @@ interface IViewStationInfo {
         fun checkForView()
 
         fun clickEvents()
+
+        fun setShowTitle()
+
+        fun setTitlePersian()
+
+        fun setTitleEnglish()
+
+        fun setAddress()
+
     }
 
     interface Presenter {

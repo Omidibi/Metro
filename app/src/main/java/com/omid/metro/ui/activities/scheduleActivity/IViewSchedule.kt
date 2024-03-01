@@ -9,6 +9,8 @@ interface IViewSchedule {
         fun setupTabBar()
 
         fun clickEvents()
+
+        fun setShowTitle()
     }
 
     interface Presenter {

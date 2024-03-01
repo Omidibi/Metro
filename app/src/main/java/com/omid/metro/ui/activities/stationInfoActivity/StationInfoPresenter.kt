@@ -12,4 +12,20 @@ class StationInfoPresenter() : IViewStationInfo.Presenter {
         iView.checkForView()
         iView.clickEvents()
     }
+
+    fun setShowTitle() {
+        iView.setShowTitle()
+    }
+
+    fun setTitlePersian() {
+        iView.setTitlePersian()
+    }
+
+    fun setTitleEnglish() {
+        iView.setTitleEnglish()
+    }
+
+    fun setAddress() {
+        iView.setAddress()
+    }
 }

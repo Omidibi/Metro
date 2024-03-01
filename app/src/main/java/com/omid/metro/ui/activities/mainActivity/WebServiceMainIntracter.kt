@@ -5,7 +5,7 @@ import com.omid.metro.model.listener.IListener
 import com.omid.metro.model.models.Lines
 import retrofit2.Call
 
-class MainIntracter {
+class WebServiceMainIntracter {
 
     private val webServiceCaller = WebServiceCaller()
 

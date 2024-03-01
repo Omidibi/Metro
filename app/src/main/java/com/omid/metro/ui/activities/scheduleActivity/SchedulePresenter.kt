@@ -7,4 +7,8 @@ class SchedulePresenter(private val iView: IViewSchedule.View) : IViewSchedule.P
         iView.setupTabBar()
         iView.clickEvents()
     }
+
+    fun setShowTitle() {
+        iView.setShowTitle()
+    }
 }

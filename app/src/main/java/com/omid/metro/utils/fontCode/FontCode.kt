@@ -1,4 +1,4 @@
-package com.omid.metro.util
+package com.omid.metro.utils.fontCode
 
 import android.graphics.Typeface
 import com.omid.metro.databinding.ActivityMainBinding
@@ -9,7 +9,7 @@ import com.omid.metro.databinding.FragmentFridayBinding
 import com.omid.metro.databinding.FragmentSatToThuBinding
 import com.omid.metro.ui.activities.mainActivity.LinesVH
 import com.omid.metro.ui.activities.stationsListActivity.StationVH
-import com.omid.metro.util.configuration.AppConfiguration
+import com.omid.metro.utils.configuration.AppConfiguration
 
 class FontCode {
     companion object{

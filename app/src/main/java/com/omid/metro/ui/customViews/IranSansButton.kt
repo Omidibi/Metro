@@ -1,10 +1,10 @@
-package com.omid.metro.util.customViews
+package com.omid.metro.ui.customViews
 
 import android.content.Context
 import android.graphics.Typeface
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatButton
-import com.omid.metro.util.configuration.AppConfiguration
+import com.omid.metro.utils.configuration.AppConfiguration
 
 class IranSansButton: AppCompatButton {
     constructor(context: Context?) : super(context!!) {

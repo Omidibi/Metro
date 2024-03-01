@@ -1,4 +1,4 @@
-package com.omid.metro.util.customViews
+package com.omid.metro.ui.customViews
 
 import android.app.Activity
 import android.app.AlertDialog

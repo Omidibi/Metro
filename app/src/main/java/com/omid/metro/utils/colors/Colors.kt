@@ -1,4 +1,4 @@
-package com.omid.metro.util
+package com.omid.metro.utils.colors
 
 import android.graphics.Color
 import android.os.Build
@@ -10,7 +10,7 @@ import com.omid.metro.model.models.LinesItem
 import com.omid.metro.model.models.StationsItem
 import com.omid.metro.ui.activities.mainActivity.LinesVH
 import com.omid.metro.ui.activities.scheduleActivity.ScheduleActivity
-import com.omid.metro.util.configuration.AppConfiguration
+import com.omid.metro.utils.configuration.AppConfiguration
 
 class Colors {
 
