@@ -68,6 +68,10 @@ class StationsListPresenter() : IListener<Stations> {
         return dBStationsListIntracter.search(lineId)
     }
 
+    fun isNotEmptySearch(lineId: String): Boolean {
+        return dBStationsListIntracter.isNotEmptySearch(lineId)
+    }
+
     fun insertStations(stationsItem: StationsItem): Long {
         return dBStationsListIntracter.insertStations(stationsItem)
     }

@@ -43,7 +43,7 @@ class StationsListActivity : AppCompatActivity(), IViewStationList<Stations> {
 
     private fun saveDataCheck() {
         binding.apply {
-            if (stationsListPresenter.search(myLines.id).isNotEmpty()) {
+            if (stationsListPresenter.isNotEmptySearch(myLines.id)) {
                 stationsListPresenter.hideProgress()
                 stationsListPresenter.hideNoConnection()
                 stationsListPresenter.showRv()

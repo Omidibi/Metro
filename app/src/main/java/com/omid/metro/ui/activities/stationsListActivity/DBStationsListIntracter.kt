@@ -11,6 +11,10 @@ class DBStationsListIntracter {
         return stationsTbl.search(lineId)
     }
 
+    fun isNotEmptySearch(lineId: String): Boolean {
+        return stationsTbl.search(lineId).isNotEmpty()
+    }
+
     fun insertStations(stationsItem: StationsItem): Long {
         return stationsTbl.insertStations(stationsItem)
     }
