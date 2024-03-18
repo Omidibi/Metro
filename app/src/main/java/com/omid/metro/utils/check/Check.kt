@@ -3,14 +3,14 @@ package com.omid.metro.utils.check
 import android.view.View
 import androidx.core.content.ContextCompat
 import com.omid.metro.R
-import com.omid.metro.databinding.ActivityStationInfoBinding
+import com.omid.metro.databinding.FragmentStationInfoBinding
 import com.omid.metro.model.models.StationsItem
-import com.omid.metro.ui.activities.stationsListActivity.StationVH
+import com.omid.metro.ui.fragments.stationsListFragment.StationVH
 import com.omid.metro.utils.configuration.AppConfiguration
 
 class Check {
     companion object {
-        fun facilitiesCheck(myStationsInfo: StationsItem, binding: ActivityStationInfoBinding) {
+        fun facilitiesCheck(myStationsInfo: StationsItem, binding: FragmentStationInfoBinding) {
             if (myStationsInfo.title == "کرج"){
                binding.txtAddress.text = AppConfiguration.getContext().getString(R.string.karaj_address)
             }

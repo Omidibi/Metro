@@ -17,7 +17,7 @@ class StationsTbl : SQLiteOpenHelper(AppConfiguration.getContext(), "StationsTbl
 
     }
 
-    fun insertStations(stationsItem: StationsItem): Long{
+   /* fun insertStations(stationsItem: StationsItem): Long{
         val db : SQLiteDatabase = writableDatabase
         val content = ContentValues()
         content.put("station_id",stationsItem.id)
@@ -113,5 +113,5 @@ class StationsTbl : SQLiteOpenHelper(AppConfiguration.getContext(), "StationsTbl
             cursor.close()
         }
         return myResult
-    }
+    }*/
 }

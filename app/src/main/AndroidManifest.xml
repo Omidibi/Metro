@@ -37,22 +37,9 @@
             android:value="@string/mapKey" />
 
         <activity
-            android:name=".ui.activities.mapsActivity.MapsActivity"
-            android:exported="false"
-            android:label="@string/title_activity_maps"
-            android:screenOrientation="fullSensor" />
-        <activity
-            android:name=".ui.activities.scheduleActivity.ScheduleActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.activities.stationInfoActivity.StationInfoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.activities.stationsListActivity.StationsListActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.activities.mainActivity.MainActivity"
-            android:exported="true">
+            android:name=".MainActivity"
+            android:exported="true"
+            tools:ignore="DuplicateActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

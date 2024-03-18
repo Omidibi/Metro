@@ -17,7 +17,7 @@ class LinesTbl : SQLiteOpenHelper(AppConfiguration.getContext(), "LinesTbl", nul
 
     }
 
-    fun insertLines(linesItem: LinesItem): Long {
+   /* fun insertLines(linesItem: LinesItem): Long {
         val db: SQLiteDatabase = writableDatabase
         val content = ContentValues()
         content.put("line_id", linesItem.id)
@@ -48,5 +48,5 @@ class LinesTbl : SQLiteOpenHelper(AppConfiguration.getContext(), "LinesTbl", nul
             cursor.close()
         }
         return myLines
-    }
+    }*/
 }

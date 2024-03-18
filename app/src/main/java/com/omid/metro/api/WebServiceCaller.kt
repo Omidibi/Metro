@@ -4,35 +4,27 @@ import com.omid.metro.api.InitRetrofit.iService
 import com.omid.metro.model.listener.IListener
 import com.omid.metro.model.models.Lines
 import com.omid.metro.model.models.Stations
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.schedulers.Schedulers
 
 class WebServiceCaller {
 
     fun getLines(iListener: IListener<Lines>) {
-        iService.getLines().enqueue(object : Callback<Lines> {
-            override fun onResponse(call: Call<Lines>, response: Response<Lines>) {
-                iListener.onSuccess(call, response.body()!!)
-            }
+        CompositeDisposable().apply {
+            val disposable = iService.getLines()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ lines ->
+                    iListener.onSuccess(lines)
+                }, { error ->
 
-            override fun onFailure(call: Call<Lines>, t: Throwable) {
-                iListener.onFailure(call, t, "Error")
-            }
-
-        })
+                })
+            this.add(disposable)
+        }
     }
 
-    fun getStations(id: String, iListener: IListener<Stations>) {
-        iService.getStations(id).enqueue(object : Callback<Stations> {
-            override fun onResponse(call: Call<Stations>, response: Response<Stations>) {
-                iListener.onSuccess(call, response.body()!!)
-            }
-
-            override fun onFailure(call: Call<Stations>, t: Throwable) {
-                iListener.onFailure(call, t, "Error")
-            }
-
-        })
+    suspend fun getStations(id: String): Stations? {
+        iService.getStations(id).apply { return if (this.isSuccessful) this.body() else null }
     }
 }

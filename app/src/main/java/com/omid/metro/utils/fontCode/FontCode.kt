@@ -1,18 +1,20 @@
 package com.omid.metro.utils.fontCode
 
 import android.graphics.Typeface
-import com.omid.metro.databinding.ActivityMainBinding
-import com.omid.metro.databinding.ActivityScheduleBinding
-import com.omid.metro.databinding.ActivityStationInfoBinding
-import com.omid.metro.databinding.ActivityStationsListBinding
 import com.omid.metro.databinding.FragmentFridayBinding
+import com.omid.metro.databinding.FragmentMainBinding
 import com.omid.metro.databinding.FragmentSatToThuBinding
-import com.omid.metro.ui.activities.mainActivity.LinesVH
-import com.omid.metro.ui.activities.stationsListActivity.StationVH
+import com.omid.metro.databinding.FragmentScheduleBinding
+import com.omid.metro.databinding.FragmentStationInfoBinding
+import com.omid.metro.databinding.FragmentStationsListBinding
+import com.omid.metro.ui.fragments.mainFragment.LinesVH
+import com.omid.metro.ui.fragments.stationsListFragment.StationVH
 import com.omid.metro.utils.configuration.AppConfiguration
 
 class FontCode {
+
     companion object{
+
         fun lineAdapter(holder: LinesVH){
             holder.apply {
                 val typeface = Typeface.createFromAsset(AppConfiguration.getContext().assets,"font/IRANSansMobile(FaNum).ttf")
@@ -27,7 +29,7 @@ class FontCode {
             holder.nameEnglish.typeface = typeface
         }
 
-        fun mainActivity(binding : ActivityMainBinding){
+        fun mainActivity(binding : FragmentMainBinding){
             val typeface = Typeface.createFromAsset(AppConfiguration.getContext().assets,"font/IRANSansMobile(FaNum).ttf")
             binding.showTitle.typeface = typeface
             binding.txtEn.typeface = typeface
@@ -35,12 +37,12 @@ class FontCode {
             binding.btnTry.typeface = typeface
         }
 
-        fun scheduleActivity(binding : ActivityScheduleBinding){
+        fun scheduleActivity(binding : FragmentScheduleBinding){
             val typeface = Typeface.createFromAsset(AppConfiguration.getContext().assets,"font/IRANSansMobile(FaNum).ttf")
             binding.showTitle.typeface = typeface
         }
 
-        fun stationInfoActivity(binding : ActivityStationInfoBinding){
+        fun stationInfoActivity(binding : FragmentStationInfoBinding){
             val typeface = Typeface.createFromAsset(AppConfiguration.getContext().assets,"font/IRANSansMobile(FaNum).ttf")
             binding.txtAddress.typeface = typeface
             binding.txtTitleEnglish.typeface = typeface
@@ -66,7 +68,7 @@ class FontCode {
             binding.tvElevator.typeface = typeface
         }
 
-        fun stationsListActivity(binding : ActivityStationsListBinding){
+        fun stationsListActivity(binding : FragmentStationsListBinding){
             val typeface = Typeface.createFromAsset(AppConfiguration.getContext().assets,"font/IRANSansMobile(FaNum).ttf")
             binding.showTitle.typeface = typeface
             binding.txtEn.typeface = typeface

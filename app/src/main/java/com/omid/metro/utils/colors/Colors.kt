@@ -1,15 +1,14 @@
 package com.omid.metro.utils.colors
 
 import android.graphics.Color
-import android.os.Build
 import androidx.core.content.ContextCompat
 import com.omid.metro.R
-import com.omid.metro.databinding.ActivityScheduleBinding
-import com.omid.metro.databinding.ActivityStationInfoBinding
+import com.omid.metro.databinding.FragmentScheduleBinding
+import com.omid.metro.databinding.FragmentStationInfoBinding
 import com.omid.metro.model.models.LinesItem
 import com.omid.metro.model.models.StationsItem
-import com.omid.metro.ui.activities.mainActivity.LinesVH
-import com.omid.metro.ui.activities.scheduleActivity.ScheduleActivity
+import com.omid.metro.ui.fragments.mainFragment.LinesVH
+import com.omid.metro.ui.fragments.scheduleFragment.ScheduleFragment
 import com.omid.metro.utils.configuration.AppConfiguration
 
 class Colors {
@@ -30,7 +29,7 @@ class Colors {
             }
         }
 
-        fun titleBackground(myStation: StationsItem, binding: ActivityStationInfoBinding) {
+        fun titleBackground(myStation: StationsItem, binding: FragmentStationInfoBinding) {
             when (myStation.lineId) {
                 "1" -> binding.llTitle.setBackgroundColor(ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line1))
 
@@ -63,52 +62,45 @@ class Colors {
             }
         }
 
-        fun toolbarColor(schedule: StationsItem, binding: ActivityScheduleBinding, activity: ScheduleActivity) {
+        fun toolbarColor(schedule: StationsItem, binding: FragmentScheduleBinding, fragment: ScheduleFragment) {
             when (schedule.lineId) {
                 "1" -> { binding.toolbarSchedule.setBackgroundColor(ContextCompat.getColor(AppConfiguration.getContext(),R.color.Line1))
                     binding.tabsTL.setBackgroundColor(ContextCompat.getColor(AppConfiguration.getContext(),R.color.Line1))
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        activity.window.statusBarColor = ContextCompat.getColor(AppConfiguration.getContext(),R.color.Line1)}
+                    fragment.requireActivity().window.statusBarColor = ContextCompat.getColor(AppConfiguration.getContext(),R.color.Line1)
                 }
 
                 "2" -> { binding.toolbarSchedule.setBackgroundColor(ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line2))
                     binding.tabsTL.setBackgroundColor(ContextCompat.getColor(AppConfiguration.getContext(),R.color.Line2))
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        activity.window.statusBarColor = ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line2)}
+                    fragment.requireActivity().window.statusBarColor = ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line2)
                 }
 
                 "3" -> { binding.toolbarSchedule.setBackgroundColor(ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line3))
                     binding.tabsTL.setBackgroundColor(ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line3))
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        activity.window.statusBarColor = ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line3)}
+                    fragment.requireActivity().window.statusBarColor = ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line3)
                 }
 
                 "4" -> {
                     binding.toolbarSchedule.setBackgroundColor(ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line4))
                     binding.tabsTL.setBackgroundColor(ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line4))
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        activity.window.statusBarColor = ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line4)}
+                    fragment.requireActivity().window.statusBarColor = ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line4)
                 }
 
                 "5" -> {
                     binding.toolbarSchedule.setBackgroundColor(ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line5))
                     binding.tabsTL.setBackgroundColor(ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line5))
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        activity.window.statusBarColor = ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line5)}
+                    fragment.requireActivity().window.statusBarColor = ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line5)
                 }
 
                 "6" -> {
                     binding.toolbarSchedule.setBackgroundColor(ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line6))
                     binding.tabsTL.setBackgroundColor(ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line6))
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        activity.window.statusBarColor = ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line6)}
+                    fragment.requireActivity().window.statusBarColor = ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line6)
                 }
 
                 "7" -> {
                     binding.toolbarSchedule.setBackgroundColor(ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line7))
                     binding.tabsTL.setBackgroundColor(ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line7))
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        activity.window.statusBarColor = ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line7)}
+                    fragment.requireActivity().window.statusBarColor = ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line7)
                 }
             }
         }
