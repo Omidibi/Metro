@@ -7,9 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.omid.metro.R
 import com.omid.metro.databinding.FragmentStationsListBinding
 import com.omid.metro.model.models.LinesItem
 import com.omid.metro.model.models.Stations
@@ -36,6 +38,7 @@ class StationsListFragment : Fragment(), IViewStationList<Stations> {
     private fun setupBinding() {
         requireActivity().requestedOrientation = (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         binding = FragmentStationsListBinding.inflate(layoutInflater)
+        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.Nero)
     }
 
     private fun getStations() {

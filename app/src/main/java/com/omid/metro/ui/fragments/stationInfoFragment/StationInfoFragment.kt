@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.omid.metro.R
@@ -40,7 +41,7 @@ class StationInfoFragment : Fragment(), IViewStationInfo.View {
     override fun setupBinding() {
         requireActivity().requestedOrientation = (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         binding = FragmentStationInfoBinding.inflate(layoutInflater)
-
+        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.Nero)
     }
 
     override fun checkForView() {

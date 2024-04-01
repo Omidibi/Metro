@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.omid.metro.R
@@ -32,6 +33,7 @@ class MainFragment : Fragment(), IViewMActivity<Lines> {
     private fun setupBinding() {
         requireActivity().requestedOrientation = (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         binding = FragmentMainBinding.inflate(layoutInflater)
+        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.Nero)
         mainPresenter.setShowTitle()
     }
 
