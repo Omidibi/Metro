@@ -38,7 +38,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.appcompat.widget.Toolbar>
@@ -61,9 +60,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
-
-            />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_no_connection"

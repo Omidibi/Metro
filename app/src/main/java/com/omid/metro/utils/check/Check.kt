@@ -9,16 +9,18 @@ import com.omid.metro.ui.fragments.stationsListFragment.StationVH
 import com.omid.metro.utils.configuration.AppConfiguration
 
 class Check {
+
     companion object {
+
         fun facilitiesCheck(myStationsInfo: StationsItem, binding: FragmentStationInfoBinding) {
-            if (myStationsInfo.title == "کرج"){
-               binding.txtAddress.text = AppConfiguration.getContext().getString(R.string.karaj_address)
+            if (myStationsInfo.title == "کرج") {
+                binding.txtAddress.text = AppConfiguration.getContext().getString(R.string.karaj_address)
             }
-            if (myStationsInfo.escalator == "0"){
+            if (myStationsInfo.escalator == "0") {
                 binding.imgEscalator.alpha = 0.4f
                 binding.tvEscalator.alpha = 0.4f
             }
-            if (myStationsInfo.lost == "0"){
+            if (myStationsInfo.lost == "0") {
                 binding.imgLost.alpha = 0.4f
                 binding.tvLost.alpha = 0.4f
             }
@@ -54,12 +56,14 @@ class Check {
                 binding.imgTicket.alpha = 0.4f
                 binding.tvTicket.alpha = 0.4f
             }
-
         }
 
         fun crossCheck(myStations: StationsItem, holder: StationVH) {
+
             when (myStations.crossLineId) {
+
                 "0" -> holder.clCross.visibility = View.GONE
+
                 "1" -> {
                     holder.clCross.visibility = View.VISIBLE
                     holder.imgCross.setColorFilter(ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line1))

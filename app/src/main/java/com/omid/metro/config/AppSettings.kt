@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import com.omid.metro.utils.configuration.AppConfiguration
 
 class AppSettings {
+
     private var sharedPreferences: SharedPreferences = AppConfiguration.getContext().getSharedPreferences("setting", Context.MODE_PRIVATE)
     private var editor: SharedPreferences.Editor = sharedPreferences.edit()
 

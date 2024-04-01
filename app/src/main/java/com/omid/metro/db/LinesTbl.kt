@@ -1,13 +1,11 @@
 package com.omid.metro.db
 
-import android.content.ContentValues
-import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.omid.metro.model.models.LinesItem
 import com.omid.metro.utils.configuration.AppConfiguration
 
 class LinesTbl : SQLiteOpenHelper(AppConfiguration.getContext(), "LinesTbl", null, 1) {
+
     override fun onCreate(db: SQLiteDatabase?) {
         val linesTbl = "Create Table tbl_Lines(id Integer PRIMARY KEY AUTOINCREMENT, line_id Text,title Text,title_english Text ,description Text,color Text)"
         db?.execSQL(linesTbl)

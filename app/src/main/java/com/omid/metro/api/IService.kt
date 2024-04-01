@@ -17,5 +17,4 @@ interface IService {
     @POST("getStations.php")
     @FormUrlEncoded
     suspend fun getStations(@Field("id") id: String): Response<Stations>
-
 }

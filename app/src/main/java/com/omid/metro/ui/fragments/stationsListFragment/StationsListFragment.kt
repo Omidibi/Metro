@@ -61,7 +61,6 @@ class StationsListFragment : Fragment(), IViewStationList<Stations> {
                 } else {
                     errorStatus()
                 }
-
             }
         }
     }
@@ -124,7 +123,6 @@ class StationsListFragment : Fragment(), IViewStationList<Stations> {
                 } else {
                     errorStatus()
                 }
-
             }
         }
     }

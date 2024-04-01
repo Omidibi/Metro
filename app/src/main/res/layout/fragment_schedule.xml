@@ -32,9 +32,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/forward"
-                app:tint="@color/white"
-
-                />
+                app:tint="@color/white" />
 
             <com.omid.metro.ui.customViews.IranSansTextView
                 android:id="@+id/showTitle"

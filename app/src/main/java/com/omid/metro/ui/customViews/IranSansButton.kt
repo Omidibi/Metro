@@ -7,6 +7,7 @@ import androidx.appcompat.widget.AppCompatButton
 import com.omid.metro.utils.configuration.AppConfiguration
 
 class IranSansButton: AppCompatButton {
+
     constructor(context: Context?) : super(context!!) {
         extracted()
     }

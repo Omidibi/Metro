@@ -10,10 +10,12 @@ import com.omid.metro.databinding.FragmentFridayBinding
 import com.omid.metro.model.models.StationsItem
 
 class FridayFragment : Fragment(), IViewFridayF.View {
+
     private lateinit var binding: FragmentFridayBinding
     private lateinit var bundle: Bundle
     private lateinit var stationsItem: StationsItem
     private val fridayFragmentPresenter = FridayFragmentPresenter(this)
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         fridayFragmentPresenter.startPresenter()
         return binding.root

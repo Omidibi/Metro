@@ -18,6 +18,7 @@ import com.omid.metro.databinding.FragmentMapsBinding
 import com.omid.metro.model.models.StationsItem
 
 class MapsFragment : Fragment(), OnMapReadyCallback {
+
     private lateinit var mMap: GoogleMap
     private lateinit var binding: FragmentMapsBinding
     private lateinit var myStationInfo: StationsItem
@@ -52,6 +53,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         lat = myStationInfo.latitude.toDouble()

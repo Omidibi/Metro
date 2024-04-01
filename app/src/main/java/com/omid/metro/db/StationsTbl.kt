@@ -1,13 +1,11 @@
 package com.omid.metro.db
 
-import android.content.ContentValues
-import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.omid.metro.model.models.StationsItem
 import com.omid.metro.utils.configuration.AppConfiguration
 
 class StationsTbl : SQLiteOpenHelper(AppConfiguration.getContext(), "StationsTbl", null, 1) {
+
     override fun onCreate(db: SQLiteDatabase?) {
        val query = "create table tbl_Stations(id Integer PRIMARY KEY AUTOINCREMENT, station_id Text, line_id Text, order_id Text, station_duration Text, title Text, title_english Text, cross_line_id Text, address Text, ticket Text, escalator Text, atm Text, taxi Text, bus Text, phone Text,water Text, lost Text, parking Text, elevator Text, latitude Text, longitude Text)"
         db?.execSQL(query)

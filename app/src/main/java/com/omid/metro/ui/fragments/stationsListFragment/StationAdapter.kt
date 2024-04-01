@@ -13,12 +13,12 @@ import com.omid.metro.model.models.StationsItem
 import com.omid.metro.utils.check.Check
 import com.omid.metro.utils.configuration.AppConfiguration
 
-class StationAdapter(private val stationList: List<StationsItem>, private val myLine : LinesItem,private val fragment: Fragment): RecyclerView.Adapter<StationVH>() {
+class StationAdapter(private val stationList: List<StationsItem>, private val myLine: LinesItem, private val fragment: Fragment) : RecyclerView.Adapter<StationVH>() {
 
     private val bundle = Bundle()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StationVH {
-     val view = LayoutInflater.from(AppConfiguration.getContext()).inflate(R.layout.stations_row,null)
+        val view = LayoutInflater.from(AppConfiguration.getContext()).inflate(R.layout.stations_row, null)
         return StationVH(view)
     }
 
@@ -32,11 +32,11 @@ class StationAdapter(private val stationList: List<StationsItem>, private val my
         holder.nameEnglish.text = myStations.titleEnglish
         holder.stationsLL.setBackgroundColor(Color.parseColor(myLine.color))
 
-        Check.crossCheck(myStations,holder)
+        Check.crossCheck(myStations, holder)
 
         holder.stationsLL.setOnClickListener {
-            bundle.putParcelable("stationsItem",myStations)
-            fragment.findNavController().navigate(R.id.action_stationsListFragment_to_stationInfoFragment,bundle)
+            bundle.putParcelable("stationsItem", myStations)
+            fragment.findNavController().navigate(R.id.action_stationsListFragment_to_stationInfoFragment, bundle)
         }
     }
 }

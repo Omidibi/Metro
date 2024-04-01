@@ -5,6 +5,7 @@ import com.omid.metro.model.models.Lines
 import com.omid.metro.model.models.LinesItem
 
 class MainPresenter() : IListener<Lines> {
+
     private lateinit var iView: IViewMActivity<Lines>
     private val webServiceMainIntracter = WebServiceMainIntracter()
     private val dbMainIntracter = DBMainIntracter()

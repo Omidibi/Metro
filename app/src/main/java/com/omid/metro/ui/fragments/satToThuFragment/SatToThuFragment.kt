@@ -10,10 +10,12 @@ import com.omid.metro.databinding.FragmentSatToThuBinding
 import com.omid.metro.model.models.StationsItem
 
 class SatToThuFragment : Fragment(), IViewSatToThu.View {
+
     lateinit var binding: FragmentSatToThuBinding
     private lateinit var bundle: Bundle
     private lateinit var stationsItem: StationsItem
     private val satToThuPresenter = SatToThuPresenter(this)
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         satToThuPresenter.startPresenter()
         return binding.root

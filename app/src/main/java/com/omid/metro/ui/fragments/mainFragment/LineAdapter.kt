@@ -16,7 +16,7 @@ class LineAdapter(private val linesList: List<LinesItem>, private val fragment: 
     private val bundle = Bundle()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LinesVH {
-        val view = LayoutInflater.from(AppConfiguration.getContext()).inflate(R.layout.lines_row,null)
+        val view = LayoutInflater.from(AppConfiguration.getContext()).inflate(R.layout.lines_row, null)
         return LinesVH(view)
     }
 
@@ -35,8 +35,8 @@ class LineAdapter(private val linesList: List<LinesItem>, private val fragment: 
             selectLine.setOnClickListener {
                 // Dialogs.lineOneAlert(activity)
                 //  Dialogs.lineFourAlert(activity)
-                bundle.putParcelable("myLines",myLines)
-                fragment.findNavController().navigate(R.id.action_mainFragment_to_stationsListFragment,bundle)
+                bundle.putParcelable("myLines", myLines)
+                fragment.findNavController().navigate(R.id.action_mainFragment_to_stationsListFragment, bundle)
             }
         }
     }

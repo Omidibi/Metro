@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         setupBinding()
     }
 
-    private fun setupBinding(){
+    private fun setupBinding() {
         requestedOrientation = (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         binding = ActivityMainBinding.inflate(layoutInflater)
         binding.apply {

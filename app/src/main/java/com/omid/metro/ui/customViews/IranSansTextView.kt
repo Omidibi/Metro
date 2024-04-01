@@ -7,6 +7,7 @@ import androidx.appcompat.widget.AppCompatTextView
 import com.omid.metro.utils.configuration.AppConfiguration
 
 class IranSansTextView: AppCompatTextView {
+
     constructor(context: Context?) : super(context!!) {
         extracted()
     }

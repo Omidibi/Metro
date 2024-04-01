@@ -30,7 +30,9 @@ class Colors {
         }
 
         fun titleBackground(myStation: StationsItem, binding: FragmentStationInfoBinding) {
+
             when (myStation.lineId) {
+
                 "1" -> binding.llTitle.setBackgroundColor(ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line1))
 
                 "2" -> binding.llTitle.setBackgroundColor(ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line2))
@@ -45,7 +47,9 @@ class Colors {
 
                 "7" -> binding.llTitle.setBackgroundColor(ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line7))
             }
+
             when (myStation.lineId) {
+
                 "1" -> binding.ll.setBackgroundColor(ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line1))
 
                 "2" -> binding.ll.setBackgroundColor(ContextCompat.getColor(AppConfiguration.getContext(), R.color.Line2))
@@ -63,7 +67,9 @@ class Colors {
         }
 
         fun toolbarColor(schedule: StationsItem, binding: FragmentScheduleBinding, fragment: ScheduleFragment) {
+
             when (schedule.lineId) {
+
                 "1" -> { binding.toolbarSchedule.setBackgroundColor(ContextCompat.getColor(AppConfiguration.getContext(),R.color.Line1))
                     binding.tabsTL.setBackgroundColor(ContextCompat.getColor(AppConfiguration.getContext(),R.color.Line1))
                     fragment.requireActivity().window.statusBarColor = ContextCompat.getColor(AppConfiguration.getContext(),R.color.Line1)

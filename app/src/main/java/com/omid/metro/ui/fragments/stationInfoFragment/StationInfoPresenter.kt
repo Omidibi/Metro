@@ -1,6 +1,7 @@
 package com.omid.metro.ui.fragments.stationInfoFragment
 
 class StationInfoPresenter() : IViewStationInfo.Presenter {
+
     private lateinit var iView: IViewStationInfo.View
 
     constructor(iViewStationInfo: IViewStationInfo.View) : this() {

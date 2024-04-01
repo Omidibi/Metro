@@ -9,25 +9,27 @@
         android:id="@+id/mainFragment"
         android:name="com.omid.metro.ui.fragments.mainFragment.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
+        tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_stationsListFragment"
             app:destination="@id/stationsListFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/stationsListFragment"
         android:name="com.omid.metro.ui.fragments.stationsListFragment.StationsListFragment"
         android:label="fragment_stations_list"
-        tools:layout="@layout/fragment_stations_list" >
+        tools:layout="@layout/fragment_stations_list">
         <action
             android:id="@+id/action_stationsListFragment_to_stationInfoFragment"
             app:destination="@id/stationInfoFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/stationInfoFragment"
         android:name="com.omid.metro.ui.fragments.stationInfoFragment.StationInfoFragment"
         android:label="fragment_station_info"
-        tools:layout="@layout/fragment_station_info" >
+        tools:layout="@layout/fragment_station_info">
         <action
             android:id="@+id/action_stationInfoFragment_to_mapsActivity"
             app:destination="@id/mapsActivity" />
@@ -35,14 +37,17 @@
             android:id="@+id/action_stationInfoFragment_to_scheduleFragment"
             app:destination="@id/scheduleFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/mapsActivity"
         android:name="com.omid.metro.ui.fragments.mapsFragment.MapsFragment"
         android:label="fragment_maps"
         tools:layout="@layout/fragment_maps" />
+
     <fragment
         android:id="@+id/scheduleFragment"
         android:name="com.omid.metro.ui.fragments.scheduleFragment.ScheduleFragment"
         android:label="fragment_schedule"
         tools:layout="@layout/fragment_schedule" />
+
 </navigation>

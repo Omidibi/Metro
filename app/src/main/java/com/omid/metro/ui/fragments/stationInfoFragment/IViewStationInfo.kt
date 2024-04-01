@@ -1,7 +1,9 @@
 package com.omid.metro.ui.fragments.stationInfoFragment
 
 interface IViewStationInfo {
+
     interface View {
+
         fun setupBinding()
 
         fun checkForView()
@@ -15,10 +17,10 @@ interface IViewStationInfo {
         fun setTitleEnglish()
 
         fun setAddress()
-
     }
 
     interface Presenter {
+
         fun start()
     }
 }

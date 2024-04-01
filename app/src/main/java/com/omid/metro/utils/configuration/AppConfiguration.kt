@@ -5,6 +5,7 @@ import android.app.Application
 import android.content.Context
 
 class AppConfiguration : Application() {
+
     private lateinit var context: Context
 
     init {
@@ -17,8 +18,10 @@ class AppConfiguration : Application() {
     }
 
     companion object {
+
         @SuppressLint("StaticFieldLeak")
         private var instance: AppConfiguration? = null
+
         fun getContext(): Context {
             return instance!!.applicationContext
         }

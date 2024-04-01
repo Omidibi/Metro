@@ -19,7 +19,6 @@ class MainFragment : Fragment(), IViewMActivity<Lines> {
     private val appSettings = AppSettings()
     private val mainPresenter = MainPresenter(this)
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         setupBinding()
         return binding.root

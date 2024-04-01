@@ -32,9 +32,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/forward"
-                app:tint="@color/white"
-
-                />
+                app:tint="@color/white" />
 
             <com.omid.metro.ui.customViews.IranSansTextView
                 android:id="@+id/showTitle"
@@ -107,9 +105,7 @@
             android:layout_width="@dimen/_24dp"
             android:layout_height="@dimen/_24dp"
             android:tint="@color/white"
-            app:srcCompat="@drawable/location"
-
-            />
+            app:srcCompat="@drawable/location" />
 
     </LinearLayout>
 
@@ -266,9 +262,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-
-                        />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <com.omid.metro.ui.customViews.IranSansTextView
                         android:id="@+id/txt_facilities_english"
@@ -282,9 +276,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-
-                        />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -413,7 +405,6 @@
                         app:layout_constraintHorizontal_bias="0.85"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
-
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
