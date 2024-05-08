@@ -1,4 +1,4 @@
-package com.omid.metro
+package com.omid.metro.activity
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle
